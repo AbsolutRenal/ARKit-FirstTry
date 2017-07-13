@@ -273,10 +273,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = R2EXFBAHGS;
+				DEVELOPMENT_TEAM = 7MA98J2NRQ;
 				INFOPLIST_FILE = "ARKit-FirstTry/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.renal.anim.ARKit-FirstTry";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.octo.ARKit-FirstTry";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -287,10 +287,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = R2EXFBAHGS;
+				DEVELOPMENT_TEAM = 7MA98J2NRQ;
 				INFOPLIST_FILE = "ARKit-FirstTry/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.renal.anim.ARKit-FirstTry";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.octo.ARKit-FirstTry";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
