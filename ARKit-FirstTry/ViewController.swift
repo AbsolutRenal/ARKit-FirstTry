@@ -10,10 +10,14 @@ import UIKit
 import SceneKit
 import ARKit
 
-class ViewController: UIViewController, ARSCNViewDelegate {
+class ViewController: UIViewController,
+ARSCNViewDelegate,
+ARSessionDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
-    
+  @IBOutlet weak var debugLabel: UILabel!
+  @IBOutlet weak var blurredDebugView: UIVisualEffectView!
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,8 +39,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Create a session configuration
         let configuration = ARWorldTrackingSessionConfiguration()
-        
+      configuration.planeDetection = .horizontal
+      
         // Run the view's session
+      sceneView.session.delegate = self
         sceneView.session.run(configuration)
     }
     
@@ -51,9 +57,34 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         super.didReceiveMemoryWarning()
         // Release any cached data, images, etc that aren't in use.
     }
-
-    // MARK: - ARSCNViewDelegate
-    
+  
+  // *********************************************************************
+  // MARK: - Private func
+  fileprivate func debug(_ message: String) {
+    debugLabel.text = message
+  }
+  
+  // *********************************************************************
+  // MARK: - ARSessionDelegate
+  func session(_ session: ARSession, didUpdate frame: ARFrame) {
+    debug("\(frame.camera.trackingState)")
+//    debug("session didUpdate frame \(frame)")
+  }
+  
+  func session(_ session: ARSession, didAdd anchors: [ARAnchor]) {
+//   debug("session didAdd anchors \(anchors)")
+  }
+  
+  func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
+//    debug("session didUpdate anchors \(anchors)")
+  }
+  
+  func session(_ session: ARSession, didRemove anchors: [ARAnchor]) {
+//    debug("session didRemove anchors \(anchors)")
+  }
+  
+  // *********************************************************************
+  // MARK: - ARSCNViewDelegate
 /*
     // Override to create and configure nodes for anchors added to the view's session.
     func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
