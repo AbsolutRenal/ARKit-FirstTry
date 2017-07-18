@@ -64,10 +64,23 @@ ARSessionDelegate {
     debugLabel.text = message
   }
   
+  fileprivate func updateTrackingState(with state: ARCamera.TrackingState) {
+    var stateStr = ""
+    switch state {
+    case .notAvailable:
+      stateStr = "Tracking unavailable"
+    case .limited(let reason):
+      stateStr = "Tracking limited:\n -> \(reason)"
+    case .normal:
+      stateStr = "Tracking normal"
+    }
+    debug(stateStr)
+  }
+  
   // *********************************************************************
   // MARK: - ARSessionDelegate
   func session(_ session: ARSession, didUpdate frame: ARFrame) {
-    debug("\(frame.camera.trackingState)")
+    updateTrackingState(with: frame.camera.trackingState)
 //    debug("session didUpdate frame \(frame)")
   }
   
